@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<script src="https://browserid.org/include.js"></script>
+<script>
+function get_assertion() {
+    navigator.id.get(function (assertion) {
+        if (assertion) {
+            document.getElementById('assertion-box').innerHTML = "<code>" + assertion + "</code>"
+        } else {
+            alert('Error');
+        }
+    });
+}
+</script>
+
+<p><a href="javascript:get_assertion()">Get assertion!</a></p>
+
+<p id="assertion-box"></p>
+
+</body>
+</html>
