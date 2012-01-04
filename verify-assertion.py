@@ -14,6 +14,8 @@ import time
 
 URL_TIMEOUT = 5  # in seconds
 CACERTS = '/etc/ssl/certs/ca-certificates.crt'
+VERIFIER_URL = 'https://browserid.org/verify' # Official verifier
+#VERIFIER_URL = 'http://127.0.0.1:10000/verify' # Local verifier
 
 
 def stringify_time(utc_epoch):
@@ -25,14 +27,13 @@ def verify_assertion(assertion, audience):
     if not assertion:
         return (None, None)
 
-    url = 'https://browserid.org/verify'
     verification_data = 'assertion=%s&audience=%s' % (assertion, audience)
     headers = {'Content-type': 'application/x-www-form-urlencoded'}
 
     client = httplib2.Http(timeout=URL_TIMEOUT, ca_certs=CACERTS)
     response = content = None
     try:
-        response, content = client.request(url, 'POST', body=verification_data,
+        response, content = client.request(VERIFIER_URL, 'POST', body=verification_data,
                                            headers=headers)
     except httplib2.HttpLib2Error as e:
         print 'BrowserID verification service failure: ' % e
