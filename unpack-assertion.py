@@ -14,10 +14,20 @@ import time
 
 
 def base64_pad_decode(string):
-    # pad base64 encoding (http://stackoverflow.com/questions/2941995)
+    # pad base64 encoding
+    # https://en.wikipedia.org/wiki/Base64#Decoding_Base64_with_padding
     string = string.strip()
-    while (len(string) % 4 != 0):
+    l = len(string)
+    if l % 4 == 0:
+        pass # no need to pad
+    elif l % 4 == 2:
+        string += '=='
+    elif l % 4 == 3:
         string += '='
+    else:
+        print "Invalid Base64 input"
+        return None
+
     return base64.b64decode(string)
 
 
