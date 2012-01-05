@@ -27,7 +27,7 @@ def verify_assertion(assertion, audience):
     if not assertion:
         return (None, None)
 
-    verification_data = 'assertion=%s&audience=%s' % (assertion, audience)
+    verification_data = 'assertion=%s&audience=%s' % (assertion.strip(), audience)
     headers = {'Content-type': 'application/x-www-form-urlencoded'}
 
     client = httplib2.Http(timeout=URL_TIMEOUT, ca_certs=CACERTS)
