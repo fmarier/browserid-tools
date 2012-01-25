@@ -21,13 +21,13 @@ To display the contents of an [assertion](https://wiki.mozilla.org/Identity/Veri
 
 # verify-assertion
 
-To verify an assertion using https://browserid.org/verify:
+To verify an assertion using the [official verifier](https://browserid.org/verify):
 
     ./verify-assertion.py http://audience.example.com < assertion.txt
 
 # License
 
-Copyright (C) 2012 Francois Marier <francois@fmarier.org>
+Copyright (C) 2012 Francois Marier \<francois@fmarier.org\>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to
