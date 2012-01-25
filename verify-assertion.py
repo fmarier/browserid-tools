@@ -6,21 +6,16 @@
 # The audience is passed as a command line parameter while the
 # assertion comes on stdin.
 
+from common import stringify_time
 import httplib2
 import json
 import sys
-import time
 
 
 URL_TIMEOUT = 5  # in seconds
 CACERTS = '/etc/ssl/certs/ca-certificates.crt'
 VERIFIER_URL = 'https://browserid.org/verify' # Official verifier
 #VERIFIER_URL = 'http://127.0.0.1:10000/verify' # Local verifier
-
-
-def stringify_time(utc_epoch):
-    t = time.gmtime(int(utc_epoch) / 1000)
-    return time.strftime('%Y-%m-%d %H:%M:%S', t)
 
 
 def verify_assertion(assertion, audience):
