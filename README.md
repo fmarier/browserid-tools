@@ -7,6 +7,12 @@ This is a simple webpage used to request an assertion from browserid.org.
 Copy the assertion you get into a text file so that you can run the other
 tools on it.
 
+# display-identities
+
+To view the details of identities stored in your browser's [local storage](https://developer.mozilla.org/en/DOM/Storage):
+
+    ./display-identities.py < localstorage.txt
+
 # unpack-assertion
 
 To display the contents of an [assertion](https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest#Bundled_Assertion):
