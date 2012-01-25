@@ -15,7 +15,7 @@
 from common import print_jwt
 import json
 import sys
-import time
+#import time
 
 
 def convert_time(iso8601_datetime):

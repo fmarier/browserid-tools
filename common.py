@@ -11,7 +11,7 @@ def base64_pad_decode(string):
     string = string.strip()
     l = len(string)
     if l % 4 == 0:
-        pass # no need to pad
+        pass  # no need to pad
     elif l % 4 == 2:
         string += '=='
     elif l % 4 == 3:
@@ -34,9 +34,9 @@ def decode(string):
 
 def compare_keys(key1, key2):
     if ('y' in key1 and not 'y' in key2) or (not 'x' in key1 and 'x' in key2):
-        return False # key1 is a public key while key2 is a private key
+        return False  # key1 is a public key while key2 is a private key
     if (not 'y' in key1 and 'y' in key2) or ('x' in key1 and not 'x' in key2):
-        return False # key1 is a private key while key2 is a private key
+        return False  # key1 is a private key while key2 is a private key
 
     if 'y' in key1:
         if key1['y'] != key2['y']:
