@@ -11,6 +11,8 @@
 #   5- expand "Local Storage" and click on "browserid.org"
 #   6- select the "emails" key and double-click on its value to select it
 #   7- use copy-paste (Ctrl+c) to dump the emails to a text file
+#
+# FIXME: how to dump the keyring using Firefox
 
 from common import print_jwt
 import json
