@@ -5,7 +5,7 @@
 # The assertion format is described here:
 #
 #   https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest
-#   http://self-issued.info/docs/draft-jones-json-web-token-04.html
+#   http://self-issued.info/docs/draft-jones-json-web-token.html
 
 import base64
 import json
