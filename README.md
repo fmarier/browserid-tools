@@ -11,13 +11,13 @@ tools on it.
 
 To display the contents of an [assertion](https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest#Bundled_Assertion):
 
-    ./unpack-assertion < assertion.txt
+    ./unpack-assertion.py < assertion.txt
 
 # verify-assertion
 
 To verify an assertion using https://browserid.org/verify:
 
-    ./verify-assertion http://audience.example.com < assertion.txt
+    ./verify-assertion.py http://audience.example.com < assertion.txt
 
 # License
 
