@@ -1,5 +1,17 @@
 This is a collection of tools related to [BrowserID](https://browserid.org).
 
+# check-domain.py
+
+To check whether a domain is a primary or secondary authority for BrowserID based on the well-known file it needs to publish.
+
+    ./check-domain.py eyedee.me
+
+# display-identities.py
+
+To view the details of identities stored in your browser's [local storage](https://developer.mozilla.org/en/DOM/Storage):
+
+    ./display-identities.py < localstorage.txt
+
 # get_assertion.html
 
 This is a simple webpage used to request an assertion from browserid.org.
@@ -7,19 +19,13 @@ This is a simple webpage used to request an assertion from browserid.org.
 Copy the assertion you get into a text file so that you can run the other
 tools on it.
 
-# display-identities
-
-To view the details of identities stored in your browser's [local storage](https://developer.mozilla.org/en/DOM/Storage):
-
-    ./display-identities.py < localstorage.txt
-
-# unpack-assertion
+# unpack-assertion.py
 
 To display the contents of an [assertion](https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest#Bundled_Assertion):
 
     ./unpack-assertion.py < assertion.txt
 
-# verify-assertion
+# verify-assertion.py
 
 To verify an assertion using the [official verifier](https://browserid.org/verify):
 
