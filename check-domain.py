@@ -47,6 +47,8 @@ def parse_wellknown_file(domain, wellknown_content):
         print "Error parsing well-known file: %s" % e
         return 2
 
+    # TODO: check for 'authority' handle delegation to that other domain
+
     auth_page = None
     if 'authentication' in details:
         auth_page = details['authentication']
