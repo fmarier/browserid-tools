@@ -9,10 +9,12 @@
 #  2 - domain configuration problem
 #  3 - tool error
 
+from common import stringify_time
 import httplib2
 import json
 import socket
 import sys
+import time
 
 
 CACERTS = '/etc/ssl/certs/ca-certificates.crt'
@@ -84,6 +86,24 @@ def parse_wellknown_file(domain, wellknown_content):
     return 0
 
 
+def parse_response_headers(headers):
+    if 'cache-control' in headers:
+        cache_control = headers['cache-control'].split(', ')
+        for elem in cache_control:
+            if elem.lower().startswith('max-age='):
+                max_age = int(elem[8:])
+                expiry = (time.time() + max_age) * 1000
+                print '  Expiry: %s' % stringify_time(expiry)
+                return 0
+    elif 'expires' in headers:
+        # TODO: parse this format and then use stringify_time()
+        print '  Expiry: %s' % headers['expires']
+        return 0
+
+    print '  Expiry: unknown'
+    return 0
+
+
 def check_domain(domain):
     (response, content, error) = fetch_url(domain, WELLKNOWN_FILENAME)
     if error:
@@ -101,7 +121,11 @@ def check_domain(domain):
         print "Received a '%s' response (instead of 'application/json') while trying to retrieve the well-known file." % response['content-type']
         return 2
 
-    return parse_wellknown_file(domain, content)
+    exit_code = parse_wellknown_file(domain, content)
+    if exit_code != 0:
+        return exit_code
+
+    return parse_response_headers(response)
 
 
 def main(argv=None):
