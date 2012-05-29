@@ -56,7 +56,9 @@ def compare_keys(key1, key2):
 
 
 def print_jwt(cert, email=None, public_key=None):
-    (header, claim, crypto) = cert.split('.')
+    parts = cert.split('.')
+    (header, claim) = (parts[0], parts[1])
+
     decoded_header = decode(header)
     decoded_claim = decode(claim)
     print '  Algorithm: %s' % decoded_header['alg']

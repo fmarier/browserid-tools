@@ -12,15 +12,7 @@ import sys
 
 
 def unpack_assertion(packed_assertion):
-    bundled_assertion = decode(packed_assertion)
-
-    print "%s certificate(s):" % len(bundled_assertion['certificates'])
-    for cert in bundled_assertion['certificates']:
-        print_jwt(cert)
-        print
-
-    print 'Identity Assertion:'
-    print_jwt(bundled_assertion['assertion'])
+    print_jwt(packed_assertion)
     return 0
 
 
