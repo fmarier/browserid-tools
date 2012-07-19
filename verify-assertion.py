@@ -14,7 +14,7 @@ import sys
 
 URL_TIMEOUT = 5  # in seconds
 CACERTS = '/etc/ssl/certs/ca-certificates.crt'
-VERIFIER_URL = 'https://browserid.org/verify'  # Official verifier
+VERIFIER_URL = 'https://verifier.login.persona.org/verify'  # Official verifier
 #VERIFIER_URL = 'http://127.0.0.1:10000/verify'  # Local verifier
 
 
