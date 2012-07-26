@@ -12,7 +12,9 @@
 #   6- select the "emails" key and double-click on its value to select it
 #   7- use copy-paste (Ctrl+c) to dump the emails to a text file
 #
-# FIXME: how to dump the keyring using Firefox
+# or using Firefox:
+#
+#   http://feeding.cloud.geek.nz/2012/07/dumping-contents-of-localstorage-in.html
 
 from common import print_jwt
 import json
