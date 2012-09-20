@@ -57,17 +57,18 @@ def compare_keys(key1, key2):
 
 def print_jwt(cert, email=None, public_key=None):
     parts = cert.split('.')
-    (header, claim) = (parts[0], parts[1])
+    (header, claim, payload) = (parts[0], parts[1], parts[3])
 
     decoded_header = decode(header)
     decoded_claim = decode(claim)
+    decoded_payload = decode(payload)
     print '  Algorithm: %s' % decoded_header['alg']
-    if 'aud' in decoded_claim:
-        print '  Audience: %s' % decoded_claim['aud']
+    if 'aud' in decoded_payload:
+        print '  Audience: %s' % decoded_payload['aud']
     if 'iss' in decoded_claim:
         print '  Issuer: %s' % decoded_claim['iss']
         print '  Issued  at: %s' % stringify_time(decoded_claim['iat'])
-    print '  Expiration: %s' % stringify_time(decoded_claim['exp'])
+    print '  Expiration: %s' % stringify_time(decoded_payload['exp'])
     if 'principal' in decoded_claim:
         if 'email' in decoded_claim['principal']:
             print '  Principal: %s' % decoded_claim['principal']['email']
