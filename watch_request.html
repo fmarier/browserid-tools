@@ -1,0 +1,22 @@
+<html>
+<body>
+<p><a href="javascript:navigator.id.request()">Login</a> - <a href="javascript:navigator.id.logout()">Logout</a></p>
+
+<p id="assertion-box"></p>
+
+<script src="https://login.persona.org/include.js"></script>
+<script>
+navigator.id.watch({
+  loggedInUser: null,
+  onlogin: function (assertion) {
+    document.getElementById('assertion-box').innerHTML = "<code>" + assertion + "</code>";
+  },
+  onlogout: function () {
+    document.getElementById('assertion-box').innerHTML = "";
+  }
+});
+
+</script>
+
+</body>
+</html>
