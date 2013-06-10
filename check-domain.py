@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Checks whether or not a domain is a primary authority for BrowserID
 #

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Unpack a BrowserID assertion (input on stdin) and display its contents
 #

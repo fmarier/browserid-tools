@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Uses the verifier at https://browserid.org/verify to check the given
 # assertion.
