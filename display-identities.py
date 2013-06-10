@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Parses a BrowserID key-ring (input on stdin) and display its contents
 #
