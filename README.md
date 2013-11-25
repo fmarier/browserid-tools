@@ -1,4 +1,4 @@
-This is a collection of tools related to [BrowserID](https://browserid.org).
+This is a collection of tools related to [BrowserID](https://login.persona.org).
 
 # check-domain.py
 
@@ -21,19 +21,19 @@ tools on it.
 
 # unpack-assertion.py
 
-To display the contents of an [assertion](https://wiki.mozilla.org/Identity/Verified_Email_Protocol/Latest#Bundled_Assertion):
+To display the contents of an [assertion](https://github.com/mozilla/id-specs/blob/prod/browserid/index.md#identity-assertion):
 
     ./unpack-assertion.py < assertion.txt
 
 # verify-assertion.py
 
-To verify an assertion using the [official verifier](https://browserid.org/verify):
+To verify an assertion using the [official verifier](https://verifier.login.persona.org/verify):
 
     ./verify-assertion.py http://audience.example.com < assertion.txt
 
 # License
 
-Copyright (C) 2012 Francois Marier \<francois@fmarier.org\>
+Copyright (C) 2012, 2013 Francois Marier \<francois@mozilla.com\>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to
