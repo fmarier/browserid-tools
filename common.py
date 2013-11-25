@@ -65,10 +65,11 @@ def print_jwt(cert, email=None, public_key=None):
     print '  Algorithm: %s' % decoded_header['alg']
     if 'aud' in decoded_payload:
         print '  Audience: %s' % decoded_payload['aud']
+    print '  Assertion expiration: %s' % stringify_time(decoded_payload['exp'])
     if 'iss' in decoded_claim:
         print '  Issuer: %s' % decoded_claim['iss']
-        print '  Issued  at: %s' % stringify_time(decoded_claim['iat'])
-    print '  Expiration: %s' % stringify_time(decoded_payload['exp'])
+        print '  Certificate issued at: %s' % stringify_time(decoded_claim['iat'])
+        print '  Certificate expiration: %s' % stringify_time(decoded_claim['exp'])
     if 'principal' in decoded_claim:
         if 'email' in decoded_claim['principal']:
             print '  Principal: %s' % decoded_claim['principal']['email']
