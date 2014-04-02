@@ -14,7 +14,8 @@ To view the details of identities stored in your browser's [local storage](https
 
 # get_assertion.html
 
-This is a simple webpage used to request an assertion from browserid.org.
+This is a simple webpage used to request an assertion from `login.persona.org`
+using the [Callback API](https://developer.mozilla.org/en-US/Persona/The_navigator.id_API#The_Callback_API).
 
 Copy the assertion you get into a text file so that you can run the other
 tools on it.
@@ -31,9 +32,17 @@ To verify an assertion using the [official verifier](https://verifier.login.pers
 
     ./verify-assertion.py http://audience.example.com < assertion.txt
 
+# watch_request.html
+
+This is a simple webpage used to request an assertion from `login.persona.org` using
+the [Observer API](https://developer.mozilla.org/en-US/Persona/The_navigator.id_API#The_Observer_API).
+
+Copy the assertion you get into a text file so that you can run the other
+tools on it.
+
 # License
 
-Copyright (C) 2012, 2013 Francois Marier \<francois@mozilla.com\>
+Copyright (C) 2012, 2013, 2014 Francois Marier \<francois@mozilla.com\>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to
