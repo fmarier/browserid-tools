@@ -81,3 +81,8 @@ def print_jwt(cert, email=None, public_key=None):
         print '  Public key: (algorithm=%s)' % decoded_claim['public-key']['algorithm']
         if public_key and not compare_keys(decoded_claim['public-key'], public_key):
             print "  WARNING: this certificate is for a different public key"
+    if 'fxa-verifiedEmail' in decoded_claim:
+        print '  Firefox Accounts metadata:'
+        print '    Generation: %s' % stringify_time(decoded_claim['fxa-generation'])
+        print '    Verified Email: %s' % decoded_claim['fxa-verifiedEmail']
+        print '    Last Authentication: %s' % stringify_time(decoded_claim['fxa-lastAuthAt'])
