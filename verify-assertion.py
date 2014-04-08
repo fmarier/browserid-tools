@@ -14,7 +14,7 @@ import sys
 
 URL_TIMEOUT = 5  # in seconds
 CACERTS = '/etc/ssl/certs/ca-certificates.crt'
-VERIFIER_URL = 'https://verifier.login.persona.org/verify'  # Official verifier
+VERIFIER_URL = 'https://verifier.accounts.firefox.com'  # Official verifier
 #VERIFIER_URL = 'http://127.0.0.1:10000/verify'  # Local verifier
 
 
@@ -65,6 +65,11 @@ def verify_assertion(assertion, audience):
     print "Audience: %s" % parsed_response['audience']
     print "Expiration: %s" % stringify_time(parsed_response['expires'])
     print "Issuer: %s" % parsed_response['issuer']
+    if parsed_response['idpClaims']:
+      print 'IdP claims:'
+      print '  FxA verified email: %s' % parsed_response['idpClaims']['fxa-verifiedEmail']
+      print '  FxA generation: %s' % stringify_time(parsed_response['idpClaims']['fxa-generation'])
+      print '  FxA last authentication: %s' % stringify_time(parsed_response['idpClaims']['fxa-lastAuthAt'])
     return 0
 
 
