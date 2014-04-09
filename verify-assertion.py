@@ -65,7 +65,7 @@ def verify_assertion(assertion, audience):
     print "Audience: %s" % parsed_response['audience']
     print "Expiration: %s" % stringify_time(parsed_response['expires'])
     print "Issuer: %s" % parsed_response['issuer']
-    if parsed_response['idpClaims']:
+    if 'idpClaims' in parsed_response:
       print 'IdP claims:'
       print '  FxA verified email: %s' % parsed_response['idpClaims']['fxa-verifiedEmail']
       print '  FxA generation: %s' % stringify_time(parsed_response['idpClaims']['fxa-generation'])
